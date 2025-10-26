@@ -13,7 +13,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'default-insecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Desactiva DEBUG si estamos en el entorno de Render, si no, usa el valor por defecto.
-DEBUG = 'RENDER' not in os.environ 
+DEBUG = True
+# 'RENDER' not in os.environ 
 
 
 # Hosts Permitidos
