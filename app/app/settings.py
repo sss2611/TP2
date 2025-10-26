@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Carga la clave secreta desde la variable de entorno de Render
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-mbpinb53*swl7ke=**2@e_w(xl!&#!*nsmgk13v97tcm&5c)ii')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default-insecure-key')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
