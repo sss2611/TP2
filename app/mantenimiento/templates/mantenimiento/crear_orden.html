@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="title is-4">Nueva Orden de Trabajo</h2>
+
+  <form method="post" class="box">
+    {% csrf_token %}
+    <div class="field">
+      {{ form.titulo.label_tag }}
+      <div class="control">
+        {{ form.titulo }}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ form.fecha.label_tag }}
+      <div class="control">
+        {{ form.fecha }}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ form.descripcion_falla.label_tag }}
+      <div class="control">
+        {{ form.descripcion_falla }}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ form.prioridad.label_tag }}
+      <div class="control">
+        {{ form.prioridad }}
+      </div>
+    </div>
+
+    <div class="field mt-4">
+      <button type="submit" class="button is-primary">Guardar Orden</button>
+      <a href="{% url 'mantenimiento:lista_ordenes' %}" class="button is-light">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

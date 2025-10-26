@@ -1,0 +1,34 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="title is-4">Mis Órdenes de Trabajo</h2>
+
+  {% if ordenes %}
+    <table class="table is-striped is-hoverable">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Prioridad</th>
+          <th>Estado</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for orden in ordenes %}
+          <tr>
+            <td>{{ orden.titulo }}</td>
+            <td>{{ orden.prioridad }}</td>
+            <td>{{ orden.estado }}</td>
+            <td>{{ orden.fecha }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="notification is-warning">
+      No hay órdenes registradas para mostrar.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+Django
+Pillow
+
+# Production Server (REQUIRED)
+gunicorn
+
+# Serving Static Files (REQUIRED for Render)
+whitenoise
+
+# Database Driver (REQUIRED if using Render's PostgreSQL database)
+psycopg2-binary
+
+# Database URL Parsing (Highly Recommended)
+dj-database-url
