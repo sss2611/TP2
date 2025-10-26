@@ -1,6 +1,6 @@
 # ITSE -- Patrimonio 2025
 
-# Link : https://tp2-sandra-django.onrender.com
+# Link : https://tp2-sandra-django.onrender.com/
 
 **Materia:** Programación IV  
 **Profesora:** Maria de los Angeles Perez
