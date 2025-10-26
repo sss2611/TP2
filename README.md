@@ -14,15 +14,17 @@
 ## Estructura
 TP2_SandraSanchez/
 ├── app/
-│         ├── app/             
-│         ├── manage.py
-│         ├── settings.py
-│         ├── wsgi.py
-│         ├── asgi.py
-│         └── __init__.py
+│    ├── app/
+│    ├── manage.py
+│    ├── settings.py
+│    ├── wsgi.py
+│    ├── asgi.py
+│    └── __init__.py
 ├── cuentas/
 ├── mantenimiento/
-├── requirements.txt es mi estructura
+├── requirements.txt
+├── Proctfile
+└── README.md
 
 ## Objetivo del Proyecto
 
