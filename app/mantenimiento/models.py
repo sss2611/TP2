@@ -18,13 +18,29 @@ class OrdenDeTrabajo(models.Model):
     descripcion_falla = models.TextField()
     prioridad = models.CharField(max_length=10, choices=PRIORIDAD_CHOICES)
     estado = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='Pendiente')
-    operario_creador = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='ordenes_creadas')
-    operario_asignado = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name='ordenes_asignadas')
+
+    # Usuario que crea la orden
+    operario_creador = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='ordenes_creadas'
+    )
+
+    # Usuario asignado para resolver la orden (puede ser nulo)
+    operario_asignado = models.ForeignKey(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='ordenes_asignadas'
+    )
+
+    # Fecha real de cierre (puede ser nula)
     fecha_cierre_real = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.titulo} - {self.estado}"
-
+    
 class ConsumoSuministro(models.Model):
     orden_de_trabajo = models.ForeignKey(OrdenDeTrabajo, on_delete=models.CASCADE)
     suministro = models.ForeignKey(Suministro, on_delete=models.CASCADE)

@@ -30,25 +30,25 @@
         <a class="navbar-item" href="/profile/">
           Bienvenido &nbsp; <strong>{{ request.user.nombre }} {{ request.user.apellido }}</strong>
         </a>
-
+        
+        <a class="navbar-item" href="/mantenimiento/ordenes/nueva/"> Crear Orden </a>
         <a class="navbar-item" href="/news/"> Noticias </a>
         <a class="navbar-item" href="/profile/"> Colecciones </a>
         <a class="navbar-item" href="/update_password/"> Cambiar contraseña </a>
-        <a class="navbar-item" href="/mantenimiento/ordenes/nueva/"> Crear Orden </a>
         
         {% if request.user.is_staff or request.user.is_superuser %}
+        <a class="navbar-item" href="/mantenimiento/ordenes/"> Mantenimiento </a>
           <a class="navbar-item" href="/cargar_noticias/"> Cargar Noticias </a>
           <a class="navbar-item" href="/users/"> Admitir Usuarios </a>
-          <a class="navbar-item" href="/mantenimiento/ordenes/"> Mantenimiento </a>
           {% if pending_users > 0 %}
-              <span class="notification-bell">
-                  <span class="notification-badge">{{ pending_users }}</span>
-              </span>
+          <span class="notification-bell">
+            <span class="notification-badge">{{ pending_users }}</span>
+          </span>
           {% endif %}
-
-        {% endif %}
-
-        {% if request.user.area == "Antropología" or request.user.is_superuser %}
+          
+          {% endif %}
+          
+          {% if request.user.area == "Antropología" or request.user.is_superuser %}
           <a class="navbar-item" href="/formularioAntropologia/"> Cargar Ficha </a>
         {% endif %}
 

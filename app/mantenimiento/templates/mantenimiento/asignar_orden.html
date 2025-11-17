@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="title is-4">Asignar Operario y Fecha de Cierre</h2>
+
+  <form method="post" class="box">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="field">
+      {{ form.operario_asignado.label_tag }}
+      <div class="control">
+        {{ form.operario_asignado }}
+        {% for error in form.operario_asignado.errors %}
+          <p class="help is-danger">{{ error }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ form.fecha_cierre_real.label_tag }}
+      <div class="control">
+        {{ form.fecha_cierre_real }}
+        {% for error in form.fecha_cierre_real.errors %}
+          <p class="help is-danger">{{ error }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="field mt-4">
+      <button type="submit" class="button is-primary">Guardar</button>
+      <a href="{% url 'mantenimiento:lista_ordenes' %}" class="button is-light">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

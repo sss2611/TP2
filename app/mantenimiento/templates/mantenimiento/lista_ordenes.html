@@ -12,6 +12,8 @@
           <th>Prioridad</th>
           <th>Estado</th>
           <th>Fecha</th>
+          <th>Operario Asignado</th>
+          <th>Fecha Cierre</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +23,12 @@
             <td>{{ orden.prioridad }}</td>
             <td>{{ orden.estado }}</td>
             <td>{{ orden.fecha }}</td>
+            <td>{{ orden.operario_asignado|default:"-" }}
+              {% if request.user.is_staff %}
+                <a href="{% url 'mantenimiento:asignar_orden' orden.id %}" class="button is-small is-info">Asignar</a>
+              {% endif %}
+            </td>
+            <td>{{ orden.fecha_cierre_real|default:"-" }}</td>
           </tr>
         {% endfor %}
       </tbody>
