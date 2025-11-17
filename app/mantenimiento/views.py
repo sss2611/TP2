@@ -26,7 +26,7 @@ def crear_orden(request):
 
 @login_required
 def lista_ordenes(request):
-    if request.user.is_superuser:
+    if request.user.is_staff or request.user.is_superuser:
         ordenes = OrdenDeTrabajo.objects.all()
     else:
         ordenes = OrdenDeTrabajo.objects.filter(operario_creador=request.user)
